@@ -1,5 +1,5 @@
 {
-    "realm": "example",
+    "realm": "raincatcher",
     "enabled": true,
     "sslRequired": "external",
     "registrationAllowed": true,
@@ -8,20 +8,74 @@
     "requiredCredentials": [ "password" ],
     "users" : [
         {
-            "username" : "user",
+            "username" : "trever",
             "enabled": true,
-            "email" : "sample-user@example",
-            "firstName": "Sample",
-            "lastName": "User",
-            "credentials" : [
-                { "type" : "password",
-                  "value" : "password" }
-            ],
-            "realmRoles": [ "user" ],
+            "email" : "trever@wfm.com",
+            "firstName": "Trever",
+            "lastName": "Smith",
+            "realmRoles": [ "admin, user" ],
             "clientRoles": {
                 "account": ["view-profile", "manage-account"]
-            }
-        }
+            },
+            "attributes" : {
+            "name" : "Trever Smith",
+            "position" : "Senior Truck Driver",
+            "phone" : "2657258272",
+            "notes" : "Trever doesn't work during the weekends.",
+            "avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg",
+            "banner" : "http://web18.streamhoster.com/pentonmedia/beefmagazine.com/TreverStockyards_38371.jpg"
+          },
+          "credentials" : [ {
+          "type" : "password",
+          "value" : "123"
+        } ]
+      },
+      {
+          "username" : "daisy",
+          "enabled": true,
+          "email" : "daisy@wfm.com",
+          "firstName": "Daisy",
+          "lastName": "Dialer",
+          "realmRoles": [ "admin, user" ],
+          "clientRoles": {
+              "account": ["view-profile", "manage-account"]
+          },
+          "attributes" : {
+            "name" : "Daisy Dialer",
+            "position" : "Junior Dispatcher",
+            "phone" : "2657548176",
+            "notes" : "Daisy doesn't work during the weekends.",
+            "avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/madysondesigns/128.jpg",
+            "banner" : "https://s3-eu-west-1.amazonaws.com/raincatcher-files/Screen+Shot+2017-03-27+at+11.04.27.png"
+        },
+        "credentials" : [ {
+        "type" : "password",
+        "value" : "123"
+      } ]
+    },
+    {
+        "username" : "max",
+        "enabled": true,
+        "email" : "max@wfm.com",
+        "firstName": "Max",
+        "lastName": "A. Million",
+        "credentials" : [ {
+              "type" : "password",
+              "value" : "123"
+        } ],
+        "realmRoles": [ "admin, user" ],
+        "clientRoles": {
+            "account": ["view-profile", "manage-account"]
+        },
+        "attributes" : {
+          "name" : "Max A. Million",
+          "position" : "Manager",
+          "phone" : "2657134154",
+          "notes" : "Max doesn't work during the weekends.",
+          "avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/davidburlton/128.jpg",
+          "banner" : "https://s3-eu-west-1.amazonaws.com/raincatcher-files/Screen+Shot+2017-03-27+at+11.04.27.png"
+      }
+    }
     ],
     "roles" : {
         "realm" : [
@@ -37,26 +91,44 @@
     },
     "scopeMappings": [
         {
-            "client": "js-console",
-            "roles": ["user"]
+            "client": "raincatcher-cloud",
+            "roles": ["user", "admin"]
+        },
+        {
+            "client": "raincatcher-mobile",
+            "roles": ["user", "admin"]
         }
     ],
     "clients": [
         {
-            "clientId": "js-console",
+            "clientId": "raincatcher-cloud",
             "enabled": true,
             "publicClient": true,
-            "baseUrl": "/js-console",
+            "baseUrl": "/RAINCATCHER_CLOUD_URL_BASE",
             "redirectUris": [
-                "/js-console/*"
+                "/RAINCATCHER_CLOUD_URL/*"
             ],
-            "webOrigins": []
+            "webOrigins": ["*"]
+        },
+        {
+            "clientId": "raincatcher-mobile",
+            "enabled": true,
+            "publicClient": true,
+            "baseUrl": "/RAINCATCHER_MOBILE_URL_BASE",
+            "redirectUris": [
+                "/RAINCATCHER_MOBILE_URL/*"
+            ],
+            "webOrigins": ["*"]
         }
     ],
     "clientScopeMappings": {
         "account": [
             {
-                "client": "js-console",
+                "client": "raincatcher-cloud",
+                "roles": ["view-profile"]
+            },
+            {
+                "client": "raincatcher-mobile",
                 "roles": ["view-profile"]
             }
         ]
