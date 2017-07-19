@@ -104,9 +104,8 @@
             "clientId": "raincatcher-cloud",
             "enabled": true,
             "publicClient": true,
-            "baseUrl": "/RAINCATCHER_CLOUD_URL_BASE",
             "redirectUris": [
-                "/RAINCATCHER_CLOUD_URL/*"
+                "http://localhost:3000/*"
             ],
             "webOrigins": ["*"]
         },
@@ -114,7 +113,6 @@
             "clientId": "raincatcher-mobile",
             "enabled": true,
             "publicClient": true,
-            "baseUrl": "/RAINCATCHER_MOBILE_URL_BASE",
             "redirectUris": [
                 "/RAINCATCHER_MOBILE_URL/*"
             ],
