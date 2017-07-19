@@ -13,9 +13,9 @@
             "email" : "trever@wfm.com",
             "firstName": "Trever",
             "lastName": "Smith",
-            "realmRoles": [ "admin", "user" ],
             "clientRoles": {
-                "account": ["view-profile", "manage-account"]
+                "account": ["view-profile", "manage-account"],
+                "raincatcher-mobile": ["user"]
             },
             "attributes" : {
             "name" : "Trever Smith",
@@ -36,9 +36,9 @@
           "email" : "daisy@wfm.com",
           "firstName": "Daisy",
           "lastName": "Dialer",
-          "realmRoles": [ "admin", "user" ],
           "clientRoles": {
-              "account": ["view-profile", "manage-account"]
+              "account": ["view-profile", "manage-account"],
+              "raincatcher-cloud": ["admin"]
           },
           "attributes" : {
             "name" : "Daisy Dialer",
@@ -63,9 +63,9 @@
               "type" : "password",
               "value" : "123"
         } ],
-        "realmRoles": [ "admin", "user" ],
         "clientRoles": {
-            "account": ["view-profile", "manage-account"]
+            "account": ["view-profile", "manage-account"],
+            "raincatcher-cloud": ["admin"]
         },
         "attributes" : {
           "name" : "Max A. Million",
@@ -76,28 +76,6 @@
           "banner" : "https://s3-eu-west-1.amazonaws.com/raincatcher-files/Screen+Shot+2017-03-27+at+11.04.27.png"
       }
     }
-    ],
-    "roles" : {
-        "realm" : [
-            {
-                "name": "user",
-                "description": "User privileges"
-            },
-            {
-                "name": "admin",
-                "description": "Administrator privileges"
-            }
-        ]
-    },
-    "scopeMappings": [
-        {
-            "client": "raincatcher-cloud",
-            "roles": ["user", "admin"]
-        },
-        {
-            "client": "raincatcher-mobile",
-            "roles": ["user", "admin"]
-        }
     ],
     "clients": [
         {
@@ -130,5 +108,21 @@
                 "roles": ["view-profile"]
             }
         ]
+    },
+    "roles" : {
+        "client" : {
+          "raincatcher-cloud" : [{
+          "name" : "admin",
+          "scopeParamRequired" : false,
+          "composite" : false,
+          "clientRole" : true
+        }],
+        "raincatcher-mobile" : [{
+        "name" : "user",
+        "scopeParamRequired" : false,
+        "composite" : false,
+        "clientRole" : true
+      }]
+     }
     }
 }
