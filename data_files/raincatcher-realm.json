@@ -15,7 +15,7 @@
             "lastName": "Smith",
             "clientRoles": {
                 "account": ["view-profile", "manage-account"],
-                "raincatcher-mobile": ["user"]
+                "raincatcher-mobile": ["worker"]
             },
             "attributes" : {
             "name" : "Trever Smith",
@@ -88,11 +88,20 @@
             "webOrigins": ["*"]
         },
         {
+            "clientId": "raincatcher-portal",
+            "enabled": true,
+            "publicClient": true,
+            "redirectUris": [
+                "http://localhost:9003/*"
+            ],
+            "webOrigins": ["*"]
+        },
+        {
             "clientId": "raincatcher-mobile",
             "enabled": true,
             "publicClient": true,
             "redirectUris": [
-                "/RAINCATCHER_MOBILE_URL/*"
+                "http://localhost:9002/*"
             ],
             "webOrigins": ["*"]
         }
@@ -106,6 +115,10 @@
             {
                 "client": "raincatcher-mobile",
                 "roles": ["view-profile"]
+            },
+            {
+                "client": "raincatcher-portal",
+                "roles": ["view-profile"]
             }
         ]
     },
@@ -117,8 +130,14 @@
           "composite" : false,
           "clientRole" : true
         }],
+        "raincatcher-portal" : [{
+        "name" : "admin",
+        "scopeParamRequired" : false,
+        "composite" : false,
+        "clientRole" : true
+      }],
         "raincatcher-mobile" : [{
-        "name" : "user",
+        "name" : "worker",
         "scopeParamRequired" : false,
         "composite" : false,
         "clientRole" : true
