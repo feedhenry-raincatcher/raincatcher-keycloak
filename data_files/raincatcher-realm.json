@@ -83,7 +83,7 @@
             "enabled": true,
             "publicClient": true,
             "redirectUris": [
-                "http://localhost:3000/*"
+                "http://localhost:8001/*"
             ],
             "webOrigins": ["*"]
         },
@@ -92,7 +92,7 @@
             "enabled": true,
             "publicClient": true,
             "redirectUris": [
-                "/RAINCATCHER_MOBILE_URL/*"
+                "http://localhost:9002/*"
             ],
             "webOrigins": ["*"]
         }
