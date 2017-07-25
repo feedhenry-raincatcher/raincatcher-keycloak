@@ -5,7 +5,7 @@ LABEL name="raincatcher-keycloak-docker"
 LABEL version="1.0.0"
 
 # Enviornment Variables
-ENV KEYCLOAK_VERSION 3.1.0.Final
+ENV KEYCLOAK_VERSION 3.2.0.Final
 ENV KEYCLOAK_ADMIN_USERNAME admin
 ENV KEYCLOAK_ADMIN_PASSWORD admin
 ENV KEYCLOAK_SYSTEM_USER keycloak
