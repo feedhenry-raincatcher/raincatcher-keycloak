@@ -5,14 +5,13 @@ The contents of this repository are used to create a Keycloak standalone server
 docker image. This image is designed and styled to work with RainCatcher demo solution.
 
 
-> Note: We do not use official keycloak image as base. Image is built on the alpine base to provide a small image to run tests
-against. The image size is ~309 MB as opposed to the JBoss/Keycloak image which is ~640 MB.
+> Note: We do not use official keycloak image as base. Image is built on the alpine base to provide a small image to run tests. 
 
 ## Running image 
 
 Image is published to docker hub 
 
-    docker run feedhenry/raincatcher-keycloak
+    docker run -p 8080:8080 feedhenry/raincatcher-keycloak
 
 ## Building image
 
@@ -22,6 +21,10 @@ Execute the following commands to build and run the server:
 
 This will build the docker image, start the server with an admin user generated, and then populate the server
 with some test data specified from the data_files/raincatcher-realm.json file.
+
+## Publishing image
+
+    docker push feedhenry/raincatcher-keycloak 
 
 Navigate to **http://localhost:8080** and click on the **"Administration Console"** link
 on the page and login as the admin user using the following credentials:

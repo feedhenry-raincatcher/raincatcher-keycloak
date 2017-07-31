@@ -22,12 +22,13 @@ USER $KEYCLOAK_SYSTEM_USER
 
 WORKDIR $KEYCLOAK_USER_HOME_FOLDER
 RUN wget https://downloads.jboss.org/keycloak/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz && tar -zxf keycloak-$KEYCLOAK_VERSION.tar.gz && rm *.gz
-COPY ./scripts $SCRIPTS_FOLDER
 COPY ./data_files $DATA_FILE_FOLDER
-RUN ls $DATA_FILE_FOLDER && ls $SCRIPTS_FOLDER
+COPY ./scripts $SCRIPTS_FOLDER
+
+USER root
 RUN chmod +x $SCRIPTS_FOLDER/*
 
-# Expose port 8080, set the entry point and allow access from all ip addresses
+USER $KEYCLOAK_SYSTEM_USER
 EXPOSE 8080
 ENTRYPOINT [ "/home/keycloak/scripts/docker-entrypoint.sh" ]
 CMD ["-b", "0.0.0.0"]
