@@ -1,17 +1,24 @@
-Custom Keycloak Docker
+Raincatcher Demo Keycloak example. 
 ----------------------
 
-the contents of this repository are used to create a Keycloak standalone server
-docker image built on the alpine base to provide a small image to run tests
-against. The image size is ~309 MB as opposed to the JBoss/Keycloak image which
-is ~640 MB.
+The contents of this repository are used to create a Keycloak standalone server
+docker image. This image is designed and styled to work with RainCatcher demo solution.
 
-## Running
+
+> Note: We do not use official keycloak image as base. Image is built on the alpine base to provide a small image to run tests
+against. The image size is ~309 MB as opposed to the JBoss/Keycloak image which is ~640 MB.
+
+## Running image 
+
+Image is published to docker hub 
+
+    docker run feedhenry/raincatcher-keycloak
+
+## Building image
 
 Execute the following commands to build and run the server:
 
-    chmod +x build_run_populate.sh
-    ./build_run_populate.sh
+    docker build -t feedhenry/raincatcher-keycloak .
 
 This will build the docker image, start the server with an admin user generated, and then populate the server
 with some test data specified from the data_files/raincatcher-realm.json file.
@@ -23,20 +30,7 @@ on the page and login as the admin user using the following credentials:
     Password: admin
 
 Successful automated seeding of the container is verified by checking that the
-"Raincatcher" realm is visibile along with the master realm in the dropdown menu on
-the upper left corner of the page.
-
-
-## Stopping the Server
-
-The name of the running container is "keycloak". Execute the following command
-to stop the running container:
-
-    docker stop keycloak
-
-## Restarting the stopped
-
-    docker start keycloak
+"Raincatcher" realm is visible along with the master realm.
 
 ## Modifying Seed Data
 
