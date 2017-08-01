@@ -7,7 +7,7 @@ function checkIfKeycloakRunning {
     if [ "$STAT" = "LISTEN" ]; then
         echo "Keycloak port accessible and detected"
         sleep 10
-        installRealm
+        importRealm
     elif [ "$STAT" = "" ]; then 
         sleep 5
         echo "Keycloak is not running:`$STAT`. Trying again."
@@ -15,11 +15,11 @@ function checkIfKeycloakRunning {
     fi
 }
  
-function installRealm {
-    echo "Installing RainCatcher realm into Keycloak Server"
+function importRealm {
+    echo "Importing the RainCatcher realm into the Keycloak Server"
     sh $KEYCLOAK_BIN_FOLDER/kcadm.sh config credentials --server http://127.0.0.1:8080/auth --realm master --user $KEYCLOAK_ADMIN_USERNAME --password $KEYCLOAK_ADMIN_PASSWORD
     sh $KEYCLOAK_BIN_FOLDER/kcadm.sh create realms -f $DATA_FILE_FOLDER/raincatcher-realm.json
-    echo "Realm created"
+    echo "Realm imported"
 }
 
 sleep 10

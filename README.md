@@ -20,7 +20,7 @@ Execute the following commands to build and run the server:
     docker build -t feedhenry/raincatcher-keycloak .
 
 This will build the docker image, start the server with an admin user generated, and then populate the server
-with some test data specified from the data_files/raincatcher-realm.json file.
+with some test data specified from the `data_files/raincatcher-realm.json` file.
 
 ## Publishing image
 
@@ -33,13 +33,13 @@ on the page and login as the admin user using the following credentials:
     Password: admin
 
 Successful automated seeding of the container is verified by checking that the
-"Raincatcher" realm is visible along with the master realm.
+"Raincatcher" realm is visible along with the master realm in the dropdown menu on the upper left corner of the page.
 
 ## Modifying Seed Data
 
 To modify the seed data in the server, make the appropriate changes to the
 **data_files/raincatcher-realm.json file**, stop and delete any running keycloak
-container, and run the build_run_populate.sh script again
+container, and run the docker build again.
 
 **Note:** The 'docker build' command will pickup again at the point where the realm
 file to be copied into the image is specified.
