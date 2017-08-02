@@ -1,20 +1,30 @@
-Custom Keycloak Docker
+Raincatcher Demo Keycloak example. 
 ----------------------
 
-the contents of this repository are used to create a Keycloak standalone server
-docker image built on the alpine base to provide a small image to run tests
-against. The image size is ~309 MB as opposed to the JBoss/Keycloak image which
-is ~640 MB.
+The contents of this repository are used to create a Keycloak standalone server
+docker image. This image is designed and styled to work with RainCatcher demo solution.
 
-## Running
+
+> Note: We do not use official keycloak image as base. Image is built on the alpine base to provide a small image to run tests. 
+
+## Running image 
+
+Image is published to docker hub 
+
+    docker run -p 8080:8080 feedhenry/raincatcher-keycloak
+
+## Building image
 
 Execute the following commands to build and run the server:
 
-    chmod +x build_run_populate.sh
-    ./build_run_populate.sh
+    docker build -t feedhenry/raincatcher-keycloak .
 
 This will build the docker image, start the server with an admin user generated, and then populate the server
-with some test data specified from the data_files/raincatcher-realm.json file.
+with some test data specified from the `data_files/raincatcher-realm.json` file.
+
+## Publishing image
+
+    docker push feedhenry/raincatcher-keycloak 
 
 Navigate to **http://localhost:8080** and click on the **"Administration Console"** link
 on the page and login as the admin user using the following credentials:
@@ -23,26 +33,13 @@ on the page and login as the admin user using the following credentials:
     Password: admin
 
 Successful automated seeding of the container is verified by checking that the
-"Raincatcher" realm is visibile along with the master realm in the dropdown menu on
-the upper left corner of the page.
-
-
-## Stopping the Server
-
-The name of the running container is "keycloak". Execute the following command
-to stop the running container:
-
-    docker stop keycloak
-
-## Restarting the stopped
-
-    docker start keycloak
+"Raincatcher" realm is visible along with the master realm in the dropdown menu on the upper left corner of the page.
 
 ## Modifying Seed Data
 
 To modify the seed data in the server, make the appropriate changes to the
 **data_files/raincatcher-realm.json file**, stop and delete any running keycloak
-container, and run the build_run_populate.sh script again
+container, and run the docker build again.
 
 **Note:** The 'docker build' command will pickup again at the point where the realm
 file to be copied into the image is specified.
