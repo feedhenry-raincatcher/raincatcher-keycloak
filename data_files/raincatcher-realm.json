@@ -39,7 +39,8 @@
           "lastName": "Dialer",
           "clientRoles": {
               "account": ["view-profile", "manage-account"],
-              "raincatcher-cloud": ["admin"]
+              "raincatcher-cloud": ["admin"],
+              "raincatcher-portal": ["admin"]
           },
           "attributes" : {
             "id" : "rJeXyfdrH",
@@ -67,7 +68,8 @@
         } ],
         "clientRoles": {
             "account": ["view-profile", "manage-account"],
-            "raincatcher-cloud": ["admin"]
+            "raincatcher-cloud": ["admin"],
+            "raincatcher-portal": ["admin"]
         },
         "attributes" : {
           "id" : "H1ZmkzOrr",
