@@ -14,9 +14,11 @@
             "firstName": "Trever",
             "lastName": "Smith",
             "clientRoles": {
-                "account": ["view-profile", "manage-account"],
-                "raincatcher-mobile": ["user"]
+                "account": ["view-profile", "manage-account"]
             },
+            "groups" : [
+              "users"
+            ],
             "attributes" : {
             "id" : "rkX1fdSH",
             "name" : "Trever Smith",
@@ -38,10 +40,11 @@
           "firstName": "Daisy",
           "lastName": "Dialer",
           "clientRoles": {
-              "account": ["view-profile", "manage-account"],
-              "raincatcher-cloud": ["admin"],
-              "raincatcher-portal": ["admin"]
+              "account": ["view-profile", "manage-account"]
           },
+          "groups" : [
+            "admins"
+          ],
           "attributes" : {
             "id" : "rJeXyfdrH",
             "name" : "Daisy Dialer",
@@ -67,10 +70,11 @@
               "value" : "123"
         } ],
         "clientRoles": {
-            "account": ["view-profile", "manage-account"],
-            "raincatcher-cloud": ["admin"],
-            "raincatcher-portal": ["admin"]
+            "account": ["view-profile", "manage-account"]
         },
+        "groups" : [
+          "admins"
+        ],
         "attributes" : {
           "id" : "H1ZmkzOrr",
           "name" : "Max A. Million",
@@ -92,9 +96,11 @@
               "value" : "123"
         } ],
         "clientRoles": {
-            "account": ["view-profile", "manage-account"],
-            "raincatcher-mobile": ["user"]
+            "account": ["view-profile", "manage-account"]
         },
+        "groups" : [
+          "users"
+        ],
         "attributes" : {
           "id" : "SyVXyMuSr",
           "name" : "Billy Baller",
@@ -116,9 +122,11 @@
               "value" : "123"
         } ],
         "clientRoles": {
-            "account": ["view-profile", "manage-account"],
-            "raincatcher-mobile": ["user"]
+            "account": ["view-profile", "manage-account"]
         },
+        "groups" : [
+          "users"
+        ],
         "attributes" : {
           "id" : "B1r71fOBr",
           "name" : "Sally Shorer",
@@ -140,9 +148,11 @@
               "value" : "123"
         } ],
         "clientRoles": {
-            "account": ["view-profile", "manage-account"],
-            "raincatcher-mobile": ["user"]
+            "account": ["view-profile", "manage-account"]
         },
+        "groups" : [
+          "users"
+        ],
         "attributes" : {
           "id" : "HJ8QkzOSH",
           "name" : "Danny Doorman",
@@ -164,9 +174,11 @@
               "value" : "123"
         } ],
         "clientRoles": {
-            "account": ["view-profile", "manage-account"],
-            "raincatcher-mobile": ["user"]
+            "account": ["view-profile", "manage-account"]
         },
+        "groups" : [
+          "users"
+        ],
         "attributes" : {
           "id" : "BJQm1G_BS",
           "name" : "Johnny Fizall",
@@ -188,9 +200,11 @@
               "value" : "123"
         } ],
         "clientRoles": {
-            "account": ["view-profile", "manage-account"],
-            "raincatcher-portal": ["admin"]
+            "account": ["view-profile", "manage-account"]
         },
+        "groups" : [
+          "admins"
+        ],
         "attributes" : {
           "id" : "ByzQyz_BS",
           "name" : "Phylis Lexy",
@@ -251,6 +265,12 @@
           "scopeParamRequired" : false,
           "composite" : false,
           "clientRole" : true
+        }, 
+        {
+          "name" : "user",
+          "scopeParamRequired" : false,
+          "composite" : false,
+          "clientRole" : true
         }],
         "raincatcher-portal" : [{
         "name" : "admin",
@@ -265,5 +285,43 @@
         "clientRole" : true
       }]
      }
+  },
+  "groups": [
+    {
+      "id": "d991edd4-4130-4635-8514-2660c449b126",
+      "name": "users",
+      "path": "/users",
+      "attributes": {},
+      "realmRoles": [],
+      "clientRoles": {
+        "raincatcher-mobile": [
+          "user"
+        ],
+        "raincatcher-cloud": [
+          "user"
+        ]
+      },
+      "subGroups": []
+    },
+    {
+      "id": "93fecdd9-6685-4b5a-b7c3-617a1c039419",
+      "name": "admins",
+      "path": "/admins",
+      "attributes": {},
+      "realmRoles": [],
+      "clientRoles": {
+        "raincatcher-mobile": [
+          "user"
+        ],
+        "raincatcher-portal": [
+          "admin"
+        ],
+        "raincatcher-cloud": [
+          "admin",
+          "user"
+        ]
+      },
+      "subGroups": []
     }
+  ]
 }
