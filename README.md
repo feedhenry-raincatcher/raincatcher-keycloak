@@ -12,6 +12,15 @@ docker image. This image is designed and styled to work with RainCatcher demo so
 Image is published to docker hub 
 
     docker run -p 8080:8080 feedhenry/raincatcher-keycloak
+    
+Navigate to **http://localhost:8080** and click on the **"Administration Console"** link
+on the page and login as the admin user using the following credentials:
+
+    Username: admin
+    Password: admin
+
+Successful automated seeding of the container is verified by checking that the
+"Raincatcher" realm is visible along with the master realm in the dropdown menu on the upper left corner of the page.
 
 ## Building image
 
@@ -25,15 +34,6 @@ with some test data specified from the `data_files/raincatcher-realm.json` file.
 ## Publishing image
 
     docker push feedhenry/raincatcher-keycloak 
-
-Navigate to **http://localhost:8080** and click on the **"Administration Console"** link
-on the page and login as the admin user using the following credentials:
-
-    Username: admin
-    Password: admin
-
-Successful automated seeding of the container is verified by checking that the
-"Raincatcher" realm is visible along with the master realm in the dropdown menu on the upper left corner of the page.
 
 ## Modifying Seed Data
 
