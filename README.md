@@ -4,8 +4,9 @@ Raincatcher Demo Keycloak example.
 The contents of this repository are used to create a Keycloak standalone server
 docker image. This image is designed and styled to work with RainCatcher demo solution.
 
+> *Note*: Image created only for demo purposes. It should not be used for production.
 
-> Note: We do not use official keycloak image as base. Image is built on the alpine base to provide a small image to run tests. 
+> *Note*: We do not use official keycloak image as base. Image is built on the alpine base to provide a small image to run tests. 
 
 ## Running image 
 
